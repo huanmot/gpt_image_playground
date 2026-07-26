@@ -243,6 +243,7 @@ export default function InputParamsPanel({
           options={[
             { label: 'auto', value: 'auto' },
             { label: 'low', value: 'low' },
+            { label: '不审核', value: 'none' },
           ]}
           disabled={moderationDisabled}
           showValueTooltips={false}

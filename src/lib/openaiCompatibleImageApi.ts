@@ -134,7 +134,9 @@ function createResponsesImageTool(
     action: isEdit ? 'edit' : 'generate',
     size: params.size,
     output_format: params.output_format,
-    moderation: params.moderation,
+  }
+  if (params.moderation !== 'none') {
+    tool.moderation = params.moderation
   }
 
   if (profile.streamImages) {
@@ -500,7 +502,9 @@ async function callImagesApiSingle(opts: CallApiOptions, profile: ApiProfile): P
       formData.append('prompt', prompt)
       formData.append('size', params.size)
       formData.append('output_format', params.output_format)
-      formData.append('moderation', params.moderation)
+      if (params.moderation !== 'none') {
+        formData.append('moderation', params.moderation)
+      }
 
       if (!profile.codexCli) {
         formData.append('quality', params.quality)
@@ -561,7 +565,9 @@ async function callImagesApiSingle(opts: CallApiOptions, profile: ApiProfile): P
         prompt,
         size: params.size,
         output_format: params.output_format,
-        moderation: params.moderation,
+      }
+      if (params.moderation !== 'none') {
+        body.moderation = params.moderation
       }
 
       if (!profile.codexCli) {

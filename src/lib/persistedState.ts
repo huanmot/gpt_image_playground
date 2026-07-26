@@ -75,7 +75,7 @@ function normalizeParams(value: unknown, fallback: TaskParams): TaskParams {
     output_compression: value.output_compression === null || (typeof value.output_compression === 'number' && Number.isFinite(value.output_compression))
       ? value.output_compression
       : fallback.output_compression,
-    moderation: value.moderation === 'auto' || value.moderation === 'low' ? value.moderation : fallback.moderation,
+    moderation: value.moderation === 'auto' || value.moderation === 'low' || value.moderation === 'none' ? value.moderation : fallback.moderation,
     n: typeof value.n === 'number' && Number.isFinite(value.n) ? value.n : fallback.n,
     transparent_output: typeof value.transparent_output === 'boolean' ? value.transparent_output : fallback.transparent_output,
   }

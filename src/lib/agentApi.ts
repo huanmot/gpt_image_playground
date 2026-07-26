@@ -108,7 +108,9 @@ function createImageTool(params: TaskParams, profile: ApiProfile, maskDataUrl?: 
     action: 'auto',
     size: params.size,
     output_format: params.output_format,
-    moderation: params.moderation,
+  }
+  if (params.moderation !== 'none') {
+    tool.moderation = params.moderation
   }
 
   tool.quality = params.quality
@@ -769,8 +771,10 @@ export async function callBatchImageSingle(opts: {
       action: referenceImageDataUrls.length > 0 ? 'auto' : 'generate',
       size: params.size,
       output_format: params.output_format,
-      moderation: params.moderation,
       quality: params.quality,
+    }
+    if (params.moderation !== 'none') {
+      tool.moderation = params.moderation
     }
     if (params.output_format !== 'png' && params.output_compression != null) {
       tool.output_compression = params.output_compression

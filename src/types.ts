@@ -122,7 +122,7 @@ export interface TaskParams {
   quality: 'auto' | 'low' | 'medium' | 'high'
   output_format: 'png' | 'jpeg' | 'webp'
   output_compression: number | null
-  moderation: 'auto' | 'low'
+  moderation: 'auto' | 'low' | 'none'
   n: number
   transparent_output: boolean
 }
